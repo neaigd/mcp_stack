@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  memory-mcp:
+    extends:
+      file: ./servers/memory-mcp/docker-compose.yml
+      service: memory-mcp
+  github-mcp:
+    extends:
+      file: ./servers/github-mcp/docker-compose.yml
+      service: github-mcp
+  filesystem-mcp:
+    extends:
+      file: ./servers/filesystem-mcp/docker-compose.yml
+      service: filesystem-mcp
+  supabase-mcp:
+    extends:
+      file: ./servers/supabase-mcp/docker-compose.yml
+      service: supabase-mcp
+  obsidian-mcp:
+    extends:
+      file: ./servers/obsidian-mcp/docker-compose.yml
+      service: obsidian-mcp
+  zotero-mcp:
+    extends:
+      file: ./servers/zotero-mcp/docker-compose.yml
+      service: zotero-mcp
+  docgen-mcp:
+    extends:
+      file: ./servers/docgen-mcp/docker-compose.yml
+      service: docgen-mcp
+  hugo-mcp:
+    extends:
+      file: ./servers/hugo-mcp/docker-compose.yml
+      service: hugo-mcp
+  ollama-mcp:
+    extends:
+      file: ./servers/ollama-mcp/docker-compose.yml
+      service: ollama-mcp
+  fabric-mcp:
+    extends:
+      file: ./servers/fabric-mcp/docker-compose.yml
+      service: fabric-mcp

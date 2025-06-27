@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  filesystem-mcp:
+    image: ghcr.io/mark3labs/mcp-filesystem-server:latest
+    container_name: filesystem-mcp
+    volumes:
+      - ${PROJECTS_ROOT}:/workspace
+    command: /workspace
+    ports: ["9102:8080"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

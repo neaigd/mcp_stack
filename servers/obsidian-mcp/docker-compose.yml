@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  obsidian-mcp:
+    image: ghcr.io/stevenstavrakis/obsidian-mcp:latest
+    container_name: obsidian-mcp
+    volumes:
+      - ${VAULT_PATH}:/vault
+    ports: ["9104:7070"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7070/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

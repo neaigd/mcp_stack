@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  docgen-mcp:
+    image: ghcr.io/rjadhavjt/docgen-mcp:latest
+    container_name: docgen-mcp
+    ports: ["9105:8081"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

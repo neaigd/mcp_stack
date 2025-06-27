@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  hugo-mcp:
+    image: ghcr.io/sunnycloudyang/hugo-mcp:latest
+    container_name: hugo-mcp
+    volumes:
+      - ${HUGO_SITES_ROOT}:/sites
+    ports: ["9106:8090"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

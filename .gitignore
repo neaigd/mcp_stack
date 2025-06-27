@@ -1,0 +1,31 @@
+# Environment variables
+.env
+
+# Persistent data for services
+servers/*/data/
+servers/*/models/
+
+# Docker-related files
+*.env
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*~
+.project
+.classpath
+.settings/
+
+# Gemini CLI settings
+.gemini/

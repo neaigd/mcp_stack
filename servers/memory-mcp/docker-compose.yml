@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  memory-mcp:
+    image: semitechnologies/weaviate:1.25.3
+    container_name: memory-mcp
+    ports: ["9100:8080"]
+    volumes:
+      - ${WEAVIATE_DATA}:/var/lib/weaviate
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/v1/meta"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

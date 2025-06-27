@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  fabric-mcp:
+    image: ghcr.io/dmiessler/fabric-mcp:latest
+    container_name: fabric-mcp
+    environment:
+      - FABRIC_DATA_DIR=/data
+    volumes:
+      - ./data:/data
+    ports: ["9109:8055"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8055/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
