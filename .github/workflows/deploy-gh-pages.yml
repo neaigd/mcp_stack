@@ -1,0 +1,36 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js (if needed for build steps, though not for this simple HTML)
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Build (if any build steps are required, e.g., Tailwind JIT, Hugo build)
+      run: |
+        echo "No build steps required for simple HTML/Tailwind CDN."
+        # If you later add a build process (e.g., compiling Tailwind, Hugo build),
+        # you would add those commands here.
+        # Example for Hugo: hugo --minify
+        # Example for Tailwind CLI: npx tailwindcss -i ./public-site/input.css -o ./public-site/output.css --minify
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public-site # Directory containing your static files
+        publish_branch: gh-pages # The branch to deploy to
+        force_orphan: true # Overwrite existing gh-pages branch content
