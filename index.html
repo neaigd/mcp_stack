@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP-Stack: Orquestração de Servidores para LLMs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+        .animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-pulse-slow { animation: pulse 3s infinite ease-in-out; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+        .delay-1000 { animation-delay: 1s; }
+        .delay-1200 { animation-delay: 1.2s; }
+        .delay-1400 { animation-delay: 1.4s; }
+        .delay-1600 { animation-delay: 1.6s; }
+        .delay-1800 { animation-delay: 1.8s; }
+        .delay-2000 { animation-delay: 2s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-black text-gray-100 font-sans leading-relaxed">
+
+    <!-- Header Section -->
+    <header class="container mx-auto px-6 py-12 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 animate-fadeIn">
+            MCP-Stack
+        </h1>
+        <p class="mt-4 text-xl md:text-2xl text-gray-300 animate-fadeIn delay-200">
+            Laboratório Completo de Servidores MCP para Fluxos com LLM
+        </p>
+        <div class="mt-8 flex justify-center space-x-4 animate-fadeIn delay-400">
+            <a href="#about" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Saiba Mais
+            </a>
+            <a href="https://github.com/neaigd/mcp_stack" target="_blank" class="px-6 py-3 border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Ver no GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-bold text-purple-400 animate-slideInLeft">O que é o MCP-Stack?</h2>
+        <p class="mt-6 text-lg text-gray-300 max-w-3xl mx-auto animate-fadeIn delay-600">
+            O MCP-Stack é um ecossistema robusto de **10 servidores MCP (Multi-Capability Protocol)**, prontos para uso local, projetados para orquestrar e expandir as capacidades de Large Language Models (LLMs) como Google Gemini CLI, Claude, Cursor e VS Code AI.
+            Cada serviço é Dockerizado, garantindo isolamento e fácil implantação. Nosso foco inicial é transformar a análise de jurisprudência, utilizando IA e automação para juristas inovadores.
+        </p>
+        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg animate-fadeIn delay-800 transform hover:scale-105 transition duration-300">
+                <h3 class="text-2xl font-semibold text-pink-400">Orquestração Poderosa</h3>
+                <p class="mt-4 text-gray-300">Gerencie múltiplos serviços de forma coesa com Docker Compose, otimizando fluxos de trabalho complexos.</p>
+            </div>
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg animate-fadeIn delay-1000 transform hover:scale-105 transition duration-300">
+                <h3 class="text-2xl font-semibold text-pink-400">Integração LLM</h3>
+                <p class="mt-4 text-gray-300">Conecte seus LLMs favoritos a ferramentas externas, expandindo suas funcionalidades e automação.</p>
+            </div>
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg animate-fadeIn delay-1200 transform hover:scale-105 transition duration-300">
+                <h3 class="text-2xl font-semibold text-pink-400">Ambiente Local</h3>
+                <p class="mt-4 text-gray-300">Desenvolva e teste com segurança em seu ambiente local, mantendo controle total sobre seus dados.</p>
+            </div>
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg animate-fadeIn delay-1400 transform hover:scale-105 transition duration-300">
+                <h3 class="text-2xl font-semibold text-pink-400">Inovação Jurídica</h3>
+                <p class="mt-4 text-gray-300">Aplicação prática na análise de jurisprudência, com foco em decisões do STJ e gestão de conhecimento jurídico.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prometheus Project Section -->
+    <section id="prometheus" class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-bold text-purple-400 animate-slideInRight">Projeto Prometeus: IA na Jurisprudência</h2>
+        <p class="mt-6 text-lg text-gray-300 max-w-3xl mx-auto animate-fadeIn delay-1600">
+            O MCP-Stack está sendo aplicado em um projeto piloto inovador para transformar a análise de jurisprudência, com foco inicial em decisões do Superior Tribunal de Justiça (STJ) sobre a validade de documentos eletrônicos.
+            Utilizamos IA, automação e gestão de conhecimento para gerar insights acionáveis e otimizar o trabalho de juristas.
+        </p>
+        <div class="mt-8 flex justify-center space-x-4 animate-fadeIn delay-1800">
+            <a href="#" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Saiba Mais sobre o Projeto Jurídico
+            </a>
+            <a href="./architecture_blueprint.md" target="_blank" class="px-6 py-3 border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Ver Blueprint Arquitetural
+            </a>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-bold text-purple-400 animate-slideInRight">Tecnologias em Destaque</h2>
+        <p class="mt-6 text-lg text-gray-300 max-w-3xl mx-auto animate-fadeIn delay-2000">
+            O MCP-Stack é construído sobre uma base tecnológica sólida, utilizando ferramentas e bibliotecas de ponta para garantir performance, flexibilidade e segurança.
+        </p>
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center animate-fadeIn delay-2200 transform hover:scale-105 transition duration-300">
+                <img src="https://img.icons8.com/color/96/000000/google-gemini.png" alt="Gemini CLI" class="w-20 h-20 mb-4 animate-pulse-slow">
+                <h3 class="text-xl font-semibold text-pink-400">Gemini CLI</h3>
+                <p class="text-sm text-gray-400">Interface de linha de comando para interação com LLMs.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center animate-fadeIn delay-2400 transform hover:scale-105 transition duration-300">
+                <img src="https://img.icons8.com/ios-filled/96/000000/terminal.png" alt="Warp" class="w-20 h-20 mb-4 animate-pulse-slow">
+                <h3 class="text-xl font-semibold text-pink-400">Warp</h3>
+                <p class="text-sm text-gray-400">Terminal moderno e inteligente para desenvolvedores.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center animate-fadeIn delay-2600 transform hover:scale-105 transition duration-300">
+                <img src="https://ollama.ai/public/ollama.svg" alt="Ollama" class="w-20 h-20 mb-4 animate-pulse-slow">
+                <h3 class="text-xl font-semibold text-pink-400">Ollama</h3>
+                <p class="text-sm text-gray-400">Execute LLMs localmente com facilidade.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center animate-fadeIn delay-2800 transform hover:scale-105 transition duration-300">
+                <img src="https://img.icons8.com/ios-filled/96/000000/docker.png" alt="Docker" class="w-20 h-20 mb-4 animate-pulse-slow">
+                <h3 class="text-xl font-semibold text-pink-400">Docker</h3>
+                <p class="text-sm text-gray-400">Containerização para implantação consistente.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center animate-fadeIn delay-3000 transform hover:scale-105 transition duration-300">
+                <img src="https://img.icons8.com/ios-filled/96/000000/github.png" alt="GitHub Actions" class="w-20 h-20 mb-4 animate-pulse-slow">
+                <h3 class="text-xl font-semibold text-pink-400">GitHub Actions</h3>
+                <p class="text-sm text-gray-400">Automação de CI/CD para o projeto.</p>
+            </div>
+            <!-- Add more technologies as needed -->
+        </div>
+    </section>
+
+    <!-- Core Concepts Section -->
+    <section id="concepts" class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-4xl font-bold text-purple-400 animate-slideInLeft">Conceitos Fundamentais</h2>
+        <p class="mt-6 text-lg text-gray-300 max-w-3xl mx-auto animate-fadeIn delay-3200">
+            Explore os princípios e tecnologias que impulsionam o MCP-Stack.
+        </p>
+        <div class="mt-12 flex justify-center animate-fadeIn delay-3400">
+            <a href="./concepts_summary.md" target="_blank" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Ver Resumo dos Conceitos
+            </a>
+        </div>
+    </section>
+
+    <!-- Call to Action / Footer -->
+    <footer class="container mx-auto px-6 py-12 text-center text-gray-400">
+        <p class="animate-fadeIn delay-3600">
+            Explore o MCP-Stack e leve suas interações com LLMs para o próximo nível.
+        </p>
+        <p class="mt-4 animate-fadeIn delay-3800">
+            &copy; 2025 Luiz Peixoto. Licença MIT.
+        </p>
+    </footer>
+
+</body>
+</html>
